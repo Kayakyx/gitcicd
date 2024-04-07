@@ -7,6 +7,7 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './', // 这里更改打包相对绝对路径
   plugins: [
     vue(),
     vueJsx(),
