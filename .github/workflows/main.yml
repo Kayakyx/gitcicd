@@ -5,7 +5,7 @@ on:
       - main # 这里表示push到main分支就会触发流程
 jobs:
   #自定义工作名
-  build-and-deploy:
+  my-build-and-deploy-job:
     runs-on: ubuntu-22.04 # 使用的操作系统
     steps:
       - name: 1. My Checkout 🛎️
