@@ -1,29 +1,35 @@
 name: deploy gitcici
-on: 
-  push: 
-    branches: 
+on:
+  push:
+    branches:
       - main # 这里表示push到main分支就会触发流程
 jobs:
   #自定义工作名
   build-and-deploy:
     runs-on: ubuntu-22.04 # 使用的操作系统
     steps:
-    # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
-      - name: Checkout 🛎️
+      - name: 1. My Checkout 🛎️
+        # 这是github官方的一个action，用于clone该仓库的源码到工作流中
         uses: actions/checkout@v2
         with:
           # Whether to configure the token or SSH key with the local git config
           persist-credentials: false
-      - name: Build
+      - name: 2. My Build
         # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
         # 使用 | 运行多行命令
-        # 分别为 
+        # 分别为
         # 进入项目目录
         # 安装依赖
         # 执行打包
         run: |
-          cd gitcicd
           npm install
           npm run build
-        
-  
+          echo "---> build end <---"
+      - name: 3. My Deploy
+        # 使用部署到 github pages 的 action
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # 部署到 gh-pages 分支
+          branch: gh-pages
+          publish_dir: ./dist
+
