@@ -33,5 +33,5 @@ jobs:
           branch: gh-pages
           publish_dir: ./dist
           # 读取 token 环境变量
-          github_token: ${{ secrets.GITCICDDEMO }}
+          github_token: ${{ secrets.GITCICD_DEMO }}
 
