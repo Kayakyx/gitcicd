@@ -8,13 +8,16 @@ jobs:
   my-build-and-deploy-job:
     runs-on: ubuntu-22.04 # 使用的操作系统
     steps:
-      - name: 1. My Checkout 🛎️
+      - name: 🛎️ My checkout
         # 这是github官方的一个action，用于clone该仓库的源码到工作流中
         uses: actions/checkout@v2
         with:
           # Whether to configure the token or SSH key with the local git config
           persist-credentials: false
-      - name: 2. My Build
+      # 自带一个 node v16
+      - name: 🛎️ My print node version
+        run: node --version
+      - name: 🛎️ My build
         # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
         # 使用 | 运行多行命令
         # 分别为
@@ -25,7 +28,7 @@ jobs:
           npm install
           npm run build
           echo "---> build end <---"
-      - name: 3. My Deploy
+      - name: 🛎️ My deploy
         # 使用部署到 github pages 的 action
         uses: peaceiris/actions-gh-pages@v3
         with:
