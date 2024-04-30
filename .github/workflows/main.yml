@@ -12,6 +12,15 @@ jobs:
       - name: 🛎️ My print node version
         run: node --version
 
+      - name: 🛎️ My specific version of node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.12.0
+        # run: node --version
+
+      - name: 🛎️ My print node version again
+        run: node --version
+
       - name: 🛎️ My checkout
         # 这是github官方的一个action，用于clone该仓库的源码到工作流中
         uses: actions/checkout@v2
