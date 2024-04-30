@@ -42,7 +42,7 @@ jobs:
 
       - name: 🛎️ My deploy
         # 使用部署到 github pages 的 action
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           # 部署到 gh-pages 分支
           publish_branch: gh-pages
