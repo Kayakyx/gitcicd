@@ -23,7 +23,7 @@ jobs:
 
       - name: 🛎️ My checkout
         # 这是github官方的一个action，用于clone该仓库的源码到工作流中
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           # Whether to configure the token or SSH key with the local git config
           persist-credentials: false
